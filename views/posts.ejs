@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple CMS</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Simple CMS</a>
+
+            <a href="/posts/new" class="nav-button">
+                + New Post
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="page-heading">
+            <h1>Latest Posts</h1>
+            <p>Read and manage your blog posts.</p>
+        </div>
+
+        <% posts.forEach(post => { %>
+
+            <div class="post">
+
+                <h2>
+                    <a href="/posts/<%= post._id %>">
+                        <%= post.title %>
+                    </a>
+                </h2>
+
+                <p class="post-meta">
+                    By <strong><%= post.author %></strong>
+                    &nbsp;•&nbsp;
+                    <%= post.createdAt.toLocaleString() %>
+                </p>
+
+            </div>
+
+        <% }) %>
+
+        <% if (posts.length === 0) { %>
+
+            <div class="post">
+                <p>No posts yet. Create your first post!</p>
+            </div>
+
+        <% } %>
+
+    </main>
+
+</body>
+</html>
+

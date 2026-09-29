@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title><%= post.title %> - Simple CMS</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <a href="/" class="logo">
+                Simple CMS
+            </a>
+
+            <a href="/posts/new" class="nav-button">
+                + New Post
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <article class="post-detail">
+
+            <h1><%= post.title %></h1>
+
+
+            <p class="post-meta">
+
+                By <strong><%= post.author %></strong>
+
+                &nbsp;•&nbsp;
+
+                <%= post.createdAt.toLocaleString() %>
+
+            </p>
+
+
+            <div class="post-content">
+
+                <%= post.content %>
+
+            </div>
+
+
+            <div class="post-actions">
+
+                <a href="/posts/<%= post._id %>/edit" class="button">
+                    Edit Post
+                </a>
+
+                <a href="/" class="back-link">
+                    ← Back to all posts
+                </a>
+
+            </div>
+
+        </article>
+
+    </main>
+
+</body>
+
+</html>
